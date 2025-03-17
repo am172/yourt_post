@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function IndexPages() {
     const [posts, setPosts] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/post').then(response => {
+        fetch('https://yourt-post.onrender.com/post').then(response => {
             response.json().then(posts => {
                 setPosts(posts);
             });
