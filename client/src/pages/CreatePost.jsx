@@ -102,6 +102,22 @@ export default function CreatePost() {
             <br />
             <label style={{ color: "white", fontSize: "16px", padding: "10px" }}>المقال</label>
             {/* <div ref={quillRef} style={{ ...inputStyle, minHeight: "200px", padding: "10px" }} /> */}
+             <textarea
+                placeholder="اكتب المقال هنا..."
+                value={content}
+                onChange={(ev) => setContent(ev.target.value)}
+                style={{
+                    width: "100%",
+                    minHeight: "200px",
+                    padding: "12px",
+                    borderRadius: "5px",
+                    fontSize: "16px",
+                    background: "rgb(0 0 0 / 6%)",
+                    border: "1px solid #444",
+                    color: "white",
+                    transition: "0.3s ease-in-out"
+                }}
+            />
             <br />
             <label style={{ color: "white", fontSize: "16px", padding: "10px" }}>إضافة صورة</label>
             <input type="file" onChange={(ev) => setFiles(ev.target.files)} style={inputStyle} />
