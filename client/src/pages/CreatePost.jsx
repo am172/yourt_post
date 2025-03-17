@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
-// import { useQuill } from 'react-quilljs';
-// import 'quill/dist/quill.snow.css';
+
+import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 
 export default function CreatePost() {
@@ -9,15 +8,6 @@ export default function CreatePost() {
     const [content, setContent] = useState('');
     const [files, setFiles] = useState(null);
     const [redirect, setRedirect] = useState(false);
-    const { quill, quillRef } = useQuill();
-
-    // useEffect(() => {
-    //     if (quill) {
-    //         quill.on('text-change', () => {
-    //             setContent(quill.root.innerHTML);
-    //         });
-    //     }
-    // }, [quill]);
 
     async function createNewPost(ev) {
         ev.preventDefault();
@@ -47,13 +37,8 @@ export default function CreatePost() {
         background: "rgb(34 34 34 / 56%)",
         padding: "20px",
         borderRadius: "10px",
-        // width: "90%",
-        // maxWidth: "500px",
         margin: "30px auto",
         boxShadow: "0px 4px 10px rgba(255, 255, 255, 0.1)",
-        // display: "flex",
-        // flexDirection: "column",
-        // gap: "15px"
     };
 
     const inputStyle = {
@@ -78,7 +63,6 @@ export default function CreatePost() {
         fontWeight: "bold",
         cursor: "pointer",
         transition: "0.3s ease-in-out"
-        // fontFamily: "Baloo Bhaijaan 2'"
     };
 
     return (
@@ -99,12 +83,32 @@ export default function CreatePost() {
             />
             <br />
             <label style={{ color: "white", fontSize: "16px", padding: "10px" }}>المقال</label>
-{/*             <div ref={quillRef} style={{ ...inputStyle, minHeight: "200px", padding: "10px" }} />
-            <br /> */}
+            <textarea
+                placeholder="اكتب المقال هنا..."
+                value={content}
+                onChange={(ev) => setContent(ev.target.value)}
+                style={{
+                    width: "100%",
+                    minHeight: "200px",
+                    padding: "12px",
+                    borderRadius: "5px",
+                    fontSize: "16px",
+                    background: "rgb(0 0 0 / 6%)",
+                    border: "1px solid #444",
+                    color: "white",
+                    transition: "0.3s ease-in-out"
+                }}
+            />
+            <br />
             <label style={{ color: "white", fontSize: "16px", padding: "10px" }}>إضافة صورة</label>
-            <input type="file" onChange={(ev) => setFiles(ev.target.files)} style={inputStyle} />
-
+            <input
+                type="file"
+                onChange={(ev) => setFiles(ev.target.files)}
+                style={inputStyle}
+            />
             <button style={buttonStyle}>نشر</button>
         </form>
     );
 }
+ {
+        
