@@ -29,7 +29,7 @@ export default function CreatePost() {
             data.append('file', files[0]);
         }
 
-        const response = await fetch('http://localhost:5000/post', {
+        const response = await fetch('https://yourt-post.onrender.com/post', {
             method: 'POST',
             body: data,
         });
