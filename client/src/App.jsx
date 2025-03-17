@@ -11,20 +11,20 @@ import Post from './Post'
 import { Route, Routes, Navigate } from "react-router-dom"
 
 function App() {
-  const isAuthenticated = localStorage.getItem("token") !== null;
+  // const isAuthenticated = localStorage.getItem("token") !== null;
 
   return (
     <Routes>
       {/* الزوار */}
       <Route path='/' element={<Layout />}>
         <Route index element={<IndexPages />} />
-        <Route path='/login' element={<LoginPage />} />
-        <Route path='/register' element={<RegisterPage />} />
+        {/* <Route path='/login' element={<LoginPage />} />
+        <Route path='/register' element={<RegisterPage />} /> */}
 
         {/* المستخدم المسجل فقط */}
-        <Route path='/home' element={isAuthenticated ? <Home /> : <Navigate to="/login" />} />
-        <Route path='/create' element={isAuthenticated ? <CreatePost /> : <Navigate to="/login" />} />
-        <Route path='/post/:id' element={isAuthenticated ? <PostPage /> : <Navigate to="/login" />} />
+        <Route path='/home' element={ <Home /> } />
+        <Route path='/create' element={<CreatePost />} />
+        <Route path='/post/:id' element={ <PostPage />} />
       </Route>
     </Routes>
   )

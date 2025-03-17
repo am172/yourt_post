@@ -15,7 +15,7 @@ const fs = require('fs');
 app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
 app.use(express.json());
 app.use(cookieParser());
-app.use('/uploads', express.static(__dirname+ '/uploads'));
+app.use('/uploads', express.static(__dirname + '/uploads'));
 app.post("/register", async (req, res) => {
     const { userName, password } = req.body;
     try {
@@ -53,7 +53,9 @@ app.post("/login", async (req, res) => {
 
 
 
-
+app.get("/", (req, res) => {
+    res.send("Hello World");
+});
 
 
 
@@ -113,18 +115,22 @@ app.post("/post", uploadMiddleware.single('file'), async (req, res) => {
 app.get("/post", async (req, res) => {
     res.json(
         await Post.find()
-        .sort({createdAt: -1})
-        .limit(20)
-    
+            .sort({ createdAt: -1 })
+            .limit(20)
+
     );
 });
 
 
-app.get('/post/:id', async (req, res) =>{
-    const {id} = req.params;
-    const postDoc= await Post.findById(id);
+app.get('/post/:id', async (req, res) => {
+    const { id } = req.params;
+    const postDoc = await Post.findById(id);
     res.json(postDoc);
 })
+
+
+
+
 
 
 // MongoDB connection
