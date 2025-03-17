@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useQuill } from 'react-quilljs';
-import 'quill/dist/quill.snow.css';
+// import { useQuill } from 'react-quilljs';
+// import 'quill/dist/quill.snow.css';
 import { Navigate } from 'react-router-dom';
 
 export default function CreatePost() {
@@ -11,13 +11,13 @@ export default function CreatePost() {
     const [redirect, setRedirect] = useState(false);
     const { quill, quillRef } = useQuill();
 
-    useEffect(() => {
-        if (quill) {
-            quill.on('text-change', () => {
-                setContent(quill.root.innerHTML);
-            });
-        }
-    }, [quill]);
+    // useEffect(() => {
+    //     if (quill) {
+    //         quill.on('text-change', () => {
+    //             setContent(quill.root.innerHTML);
+    //         });
+    //     }
+    // }, [quill]);
 
     async function createNewPost(ev) {
         ev.preventDefault();
@@ -99,8 +99,8 @@ export default function CreatePost() {
             />
             <br />
             <label style={{ color: "white", fontSize: "16px", padding: "10px" }}>المقال</label>
-            <div ref={quillRef} style={{ ...inputStyle, minHeight: "200px", padding: "10px" }} />
-            <br />
+{/*             <div ref={quillRef} style={{ ...inputStyle, minHeight: "200px", padding: "10px" }} />
+            <br /> */}
             <label style={{ color: "white", fontSize: "16px", padding: "10px" }}>إضافة صورة</label>
             <input type="file" onChange={(ev) => setFiles(ev.target.files)} style={inputStyle} />
 
