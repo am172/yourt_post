@@ -4,7 +4,7 @@ export default function Header() {
     const [userName, setUsername] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:5000/profile', {
+        fetch('https://yourt-post.onrender.com/profile', {
             credentials: 'include',
         })
             .then(response => response.json())
@@ -19,7 +19,7 @@ export default function Header() {
 
 
     function logout() {
-        fetch('http://localhost:5000/logout', {
+        fetch('https://yourt-post.onrender.com/logout', {
             credentials: 'include',
             method: 'POST',
 
